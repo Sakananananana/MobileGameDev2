@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
+    path: Assets/Scenes/Main Menu UI.unity
     guid: ad86cfc0c40fa6340a20ed57c8d2c4fc
   - enabled: 1
-    path: Assets/Scenes/Pause Menu.unity
+    path: Assets/Scenes/Gameplay UI.unity
     guid: 20d29092628629042a39eb871986c339
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,

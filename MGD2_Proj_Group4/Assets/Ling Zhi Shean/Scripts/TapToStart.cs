@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChanger : MonoBehaviour
+public class TapToStart : MonoBehaviour
 {
-    public GameObject volumePanel;
-
     private void OnMouseDown()
     {
         SceneManager.LoadScene("Pause Menu");
