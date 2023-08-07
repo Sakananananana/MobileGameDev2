@@ -6,11 +6,12 @@ using UnityEngine.TextCore.Text;
 public class WindMechanics : MonoBehaviour
 {
     Rigidbody rb;
+    BasicCharacterMove basic;
     private FixedJoint joint;
     public GameObject originObj;
     float maxWindStrength = 1.5f;
     float timeRemaining = 5.0f;
-
+    int coinCount;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class WindMechanics : MonoBehaviour
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
-            Debug.Log(timeRemaining);
+            //Debug.Log(timeRemaining);
         }
         else
         {
@@ -62,4 +63,6 @@ public class WindMechanics : MonoBehaviour
     {
         timeRemaining = 5.0f;
     }
+
+   
 }

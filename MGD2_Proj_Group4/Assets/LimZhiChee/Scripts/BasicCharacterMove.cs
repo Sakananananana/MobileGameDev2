@@ -6,6 +6,7 @@ public class BasicCharacterMove : MonoBehaviour
 {
     Rigidbody rb;
     Vector3 moveForward;
+    int coinCount;
     float speed = 3.0f;
 
 
@@ -28,6 +29,12 @@ public class BasicCharacterMove : MonoBehaviour
         moveForward = transform.position.normalized;
         moveForward.y = 0;
         rb.velocity = moveForward + Vector3.forward * speed;    
+    }
+
+    public void IncrementCoinCount()
+    {
+        coinCount += 1;
+        Debug.Log(coinCount);
     }
 
 }
