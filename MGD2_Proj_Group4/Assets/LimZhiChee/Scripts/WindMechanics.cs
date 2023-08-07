@@ -6,12 +6,10 @@ using UnityEngine.TextCore.Text;
 public class WindMechanics : MonoBehaviour
 {
     Rigidbody rb;
-    BasicCharacterMove basic;
     private FixedJoint joint;
     public GameObject originObj;
     float maxWindStrength = 1.5f;
     float timeRemaining = 5.0f;
-    int coinCount;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +47,6 @@ public class WindMechanics : MonoBehaviour
         //random a windspeed (ok
         //clamp rotation 
         //add force to the character
-
 
         // Simulate random wind force (simplified example)
         Vector3 windForce = new Vector3(0f, 0f, Random.Range(-maxWindStrength, maxWindStrength));
