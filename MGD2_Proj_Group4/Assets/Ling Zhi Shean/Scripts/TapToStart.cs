@@ -7,6 +7,6 @@ public class TapToStart : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("Pause Menu");
+        SceneManager.LoadScene("Gameplay UI");
     }
 }
