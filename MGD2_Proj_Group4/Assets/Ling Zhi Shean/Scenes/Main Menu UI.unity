@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase/Equip
+  m_text: Tap to Purchase
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2614,7 +2614,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 554606195}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2010702412}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: PU2_Upgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &554606195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2711,7 +2723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase/Equip
+  m_text: Tap to Purchase
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3448,7 +3460,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 750343549}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2010702414}
+        m_TargetAssemblyTypeName: Outfits, Assembly-CSharp
+        m_MethodName: Outfit1_Update
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &750343549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4400,7 +4424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -313}
+  m_AnchoredPosition: {x: 0, y: -289}
   m_SizeDelta: {x: -80, y: -660}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882319497
@@ -5468,7 +5492,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1124668935}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2010702412}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: PU1_Upgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1124668935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5774,7 +5810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 91}
+  m_AnchoredPosition: {x: 0, y: 115}
   m_SizeDelta: {x: -80, y: -660}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1259422137
@@ -6736,7 +6772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -112}
+  m_AnchoredPosition: {x: 0, y: -88}
   m_SizeDelta: {x: -80, y: -660}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438202749
@@ -8338,7 +8374,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1907906425}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2010702414}
+        m_TargetAssemblyTypeName: Outfits, Assembly-CSharp
+        m_MethodName: Outfit2_Update
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1907906425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8628,7 +8676,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1973067998}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2010702414}
+        m_TargetAssemblyTypeName: Outfits, Assembly-CSharp
+        m_MethodName: Outfit3_Update
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1973067998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8667,6 +8727,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973067995}
   m_CullTransparentMesh: 1
+--- !u!1 &2010702411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2010702413}
+  - component: {fileID: 2010702412}
+  - component: {fileID: 2010702414}
+  - component: {fileID: 2010702415}
+  m_Layer: 0
+  m_Name: Main Menu Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2010702412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010702411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f67058e118d0a44a89f56d64011e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PU1_Button_Text: {fileID: 1903825550}
+  PU1_Upgrade_1: {fileID: 911667984}
+  PU1_Upgrade_2: {fileID: 1793162536}
+  PU1_Upgrade_State: 0
+  PU2_Button_Text: {fileID: 1630215060}
+  PU2_Upgrade_1: {fileID: 588249014}
+  PU2_Upgrade_2: {fileID: 1170252989}
+  PU2_Upgrade_State: 0
+--- !u!4 &2010702413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010702411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1148.4994, y: 529.8094, z: 9.128938}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2010702414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010702411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209f06bd2d8a71c4186d0d0c02397de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Outfit1_Text: {fileID: 239561997}
+  Outfit1_isPurchased: 0
+  Outfit1_isEquiped: 0
+  Outfit2_Text: {fileID: 2079681492}
+  Outfit2_isPurchased: 0
+  Outfit2_isEquiped: 0
+  Outfit3_Text: {fileID: 571804355}
+  Outfit3_isPurchased: 0
+  Outfit3_isEquiped: 0
+--- !u!114 &2010702415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010702411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eaaaa4799878fc4686c48bfc9e82189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Total_Coins_Text: {fileID: 0}
+  Total_Coins: 0
+  Coins_Collected: 0
 --- !u!1 &2053278148
 GameObject:
   m_ObjectHideFlags: 0
@@ -8829,7 +8979,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase/Equip
+  m_text: Tap to Purchase
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9076,7 +9226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -75}
+  m_AnchoredPosition: {x: 0, y: -51}
   m_SizeDelta: {x: 450, y: 135}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2101666821
