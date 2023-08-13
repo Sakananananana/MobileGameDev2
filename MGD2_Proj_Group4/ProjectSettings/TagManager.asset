@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CoinSpawn
   - Coin
+  - PowerUp2
+  - PowerUp1
   layers:
   - Default
   - TransparentFX
