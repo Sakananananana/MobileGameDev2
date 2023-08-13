@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -22,6 +23,11 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Total_Coins_Text.text = Total_Coins.ToString();
+        Total_Coins_Text.text = "x" + Total_Coins.ToString();
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("Gameplay UI");
     }
 }

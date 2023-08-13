@@ -8,19 +8,17 @@ public class Upgrade : MonoBehaviour
 {
     MainMenu Main_Menu;
 
+    public Button PU1_Button;
     public TMP_Text PU1_Button_Text;
     public Image PU1_Upgrade_1;
     public Image PU1_Upgrade_2;
     public int PU1_Upgrade_State;
 
+    public Button PU2_Button;
     public TMP_Text PU2_Button_Text;
     public Image PU2_Upgrade_1;
     public Image PU2_Upgrade_2;
     public int PU2_Upgrade_State;
-
-    //Add Money
-    //Add Player Effects
-    //Add Player Prefs
 
     // Start is called before the first frame update
     void Start()
@@ -40,10 +38,14 @@ public class Upgrade : MonoBehaviour
         }
         else if (PU1_Upgrade_State == 1)
         {
+            PU1_Upgrade_1.color = Color.green;
             PU1_Button_Text.text = "10 coins";
         }
         else
         {
+            PU1_Button.interactable = false;
+            PU1_Upgrade_1.color = Color.green;
+            PU1_Upgrade_2.color = Color.green;
             PU1_Button_Text.text = "Full Upgraded";
         }
 
@@ -53,10 +55,14 @@ public class Upgrade : MonoBehaviour
         }
         else if (PU2_Upgrade_State == 1)
         {
+            PU2_Upgrade_1.color = Color.green;
             PU2_Button_Text.text = "10 coins";
         }
         else
         {
+            PU2_Button.interactable = false;
+            PU2_Upgrade_1.color = Color.green;
+            PU2_Upgrade_2.color = Color.green;
             PU2_Button_Text.text = "Full Upgraded";
         }
     }
@@ -65,18 +71,16 @@ public class Upgrade : MonoBehaviour
     {
         if(PU1_Upgrade_State == 0 && Main_Menu.Total_Coins >= 5)
         {
-            Main_Menu.Total_Coins -= 5;
-            PU1_Upgrade_1.color = Color.green;
             PlayerPrefs.SetInt("PU1_Upgrade_State", 1);
             PlayerPrefs.Save();
+            Main_Menu.Total_Coins -= 5;
             PU1_Upgrade_State = 1;
         }
         else if(PU1_Upgrade_State == 1 && Main_Menu.Total_Coins >= 10)
         {
-            Main_Menu.Total_Coins -= 10;
-            PU1_Upgrade_2.color = Color.green;
             PlayerPrefs.SetInt("PU1_Upgrade_State", 2);
             PlayerPrefs.Save();
+            Main_Menu.Total_Coins -= 10;
             PU1_Upgrade_State = 2;
         }
     }
@@ -85,18 +89,16 @@ public class Upgrade : MonoBehaviour
     {
         if (PU2_Upgrade_State == 0 && Main_Menu.Total_Coins >= 5)
         {
-            Main_Menu.Total_Coins -= 5;
-            PU2_Upgrade_1.color = Color.green;
             PlayerPrefs.SetInt("PU2_Upgrade_State", 1);
             PlayerPrefs.Save();
+            Main_Menu.Total_Coins -= 5;
             PU2_Upgrade_State = 1;
         }
         else if (PU2_Upgrade_State == 1 && Main_Menu.Total_Coins >= 10)
         {
-            Main_Menu.Total_Coins -= 10;
-            PU2_Upgrade_2.color = Color.green;
             PlayerPrefs.SetInt("PU2_Upgrade_State", 2);
             PlayerPrefs.Save();
+            Main_Menu.Total_Coins -= 10;
             PU2_Upgrade_State = 2;
         }
     }

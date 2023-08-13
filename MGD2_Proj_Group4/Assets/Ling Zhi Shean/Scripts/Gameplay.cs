@@ -50,7 +50,7 @@ public class Gameplay : MonoBehaviour
         //Coins_Collected = Character_Movement.coinCount;
 
         Traveled_Distance = Player.transform.position.z - Player_Original_Position;
-        Gameplay_Distance.text = Traveled_Distance.ToString(".0");
+        Gameplay_Distance.text = Traveled_Distance.ToString(".0") + "m";
 
 
         PU1_Timer_Text.text = PU1_Timer.ToString("00");
@@ -94,7 +94,7 @@ public class Gameplay : MonoBehaviour
         //        PlayerPrefs.Save();
         //    }
 
-        //    GameOver_Distance.text = Traveled_Distance.ToString(".0");
+        //    GameOver_Distance.text = Traveled_Distance.ToString(".0") + "m";
         //    GameOver_Longest_Distance.text = Longest_Traveled_Distance.ToString(".0");
         //    GameOver_Panel.SetActive(true);
         //}
