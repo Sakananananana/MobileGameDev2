@@ -1443,6 +1443,10 @@ MonoBehaviour:
   coins: {fileID: 9212481835428297471, guid: cd75bd86ab932e04e814d03ebb04d0a8, type: 3}
   nextTile: {x: 0, y: 0, z: 0}
   coinCount: 0
+  modifiedTorquee: {x: 0, y: 0, z: 0}
+  windModifier: {x: 0, y: 0, z: 0}
+  chosenWindPower: 0
+  timeRemaining: 10
 --- !u!1 &3775690386814682599
 GameObject:
   m_ObjectHideFlags: 0

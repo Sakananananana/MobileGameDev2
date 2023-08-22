@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
 
 public class Gameplay : MonoBehaviour
 {
+    public GameObject Character_1;
+    public GameObject Character_2;
+    public GameObject Character_3;
+
+    public int Outfit1_isEquiped;
+    public int Outfit2_isEquiped;
+    public int Outfit3_isEquiped;
+
     BasicCharacterMove Character_Movement;
     public GameObject Player;
     public float Player_Original_Position;
@@ -28,10 +37,19 @@ public class Gameplay : MonoBehaviour
     public float Longest_Traveled_Distance;
     public TMP_Text GameOver_Longest_Distance;
 
+    public AudioSource SFX_Audio;
+    public AudioClip[] SFX_AudioClip;
+
     // Start is called before the first frame update
     void Start()
     {
+        Outfit1_isEquiped = PlayerPrefs.GetInt("Outfit1_isEquipped", 1);
+        Outfit2_isEquiped = PlayerPrefs.GetInt("Outfit2_isEquipped", 0);
+        Outfit3_isEquiped = PlayerPrefs.GetInt("Outfit3_isEquipped", 0);
+
         Character_Movement = Player.GetComponent<BasicCharacterMove>();
+
+        PlayerPrefs.GetInt("Outfit1_isEquipped", 1);
 
         Player_Original_Position = Player.transform.position.z;
 
@@ -47,35 +65,62 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Coins_Collected = Character_Movement.coinCount;
+        if (Outfit1_isEquiped == 1)
+        {
+            Character_1.SetActive(true);
+            Character_2.SetActive(false);
+            Character_3.SetActive(false);
+        }
+
+        if (Outfit2_isEquiped == 1)
+        {
+            Character_2.SetActive(true);
+            Character_1.SetActive(false);
+            Character_3.SetActive(false);
+        }
+
+        if (Outfit3_isEquiped == 1)
+        {
+            Character_3.SetActive(true);
+            Character_1.SetActive(false);
+            Character_2.SetActive(false);
+        }
+
+
+        //Coins_Collected = "x" + Character_Movement.coinCount;
+
 
         Traveled_Distance = Player.transform.position.z - Player_Original_Position;
         Gameplay_Distance.text = Traveled_Distance.ToString(".0") + "m";
 
 
-        PU1_Timer_Text.text = PU1_Timer.ToString("00");
-        PU2_Timer_Text.text = PU2_Timer.ToString("00");
+        PU1_Timer_Text.text = PU1_Timer.ToString("00") + "s";
+        PU2_Timer_Text.text = PU2_Timer.ToString("00") + "s";
 
         //if (Character_Movement.isPU1)
         //{
+        //    SFX_Audio.PlayOneShot(SFX_AudioClip[1]);
         //    PU1_Panel.SetActive(true);
         //    PU1_Timer--;
         //}
         //else if (Pu1_Timer = 0)
         //{
         //    Character_Movement.isPU1 = false;
+        //    SFX_Audio.PlayOneShot(SFX_AudioClip[2]);
         //    PU1_Panel.SetActive(false);
         //    PU1_Timer = PlayerPrefs.GetInt("PU1_Duration");
         //}
 
         //if (Character_Movement.isPU2)
         //{
+        //    SFX_Audio.PlayOneShot(SFX_AudioClip[1]);
         //    PU2_Panel.SetActive(true);
         //    PU2_Timer--;
         //}
         //else if (PU2_Timer = 0)
         //{
         //    Character_Movement.isPU2 = false;
+        //    SFX_Audio.PlayOneShot(SFX_AudioClip[2]);
         //    PU2_Panel.SetActive(false);
         //    PU2_Timer = PlayerPrefs.GetInt("PU2_Duration");
         //}
