@@ -211,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 849974015}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -246,12 +246,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933891742}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1370241789}
+  - {fileID: 1897203103}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &933891744
 SphereCollider:
@@ -330,7 +332,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 50
+  m_Constraints: 54
   m_CollisionDetection: 0
 --- !u!114 &933891748
 MonoBehaviour:
@@ -339,12 +341,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933891742}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fab65f77a0f557a42a95482f19389121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameControl: {fileID: 2134184676}
+  breakBuff: 0
+  horizMovement: 0
 --- !u!1 &1370241786
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,8 +430,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 933891743}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 26.78, y: 0, z: 0}
 --- !u!1 &1897203102
 GameObject:
@@ -462,8 +466,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 933891743}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1897203105
 CapsuleCollider:
@@ -591,12 +595,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ropee: {fileID: 7386646447511762554, guid: 54dabf7f926315946a34f3d585d7e774, type: 3}
   coins: {fileID: 9212481835428297471, guid: cd75bd86ab932e04e814d03ebb04d0a8, type: 3}
+  powerUps: {fileID: 6908764303284422100, guid: 7e7ef09dd7ce0e5408142ab2ce093928,
+    type: 3}
+  obstacle: {fileID: 3018343806446996952, guid: c88c31dd28a2a98409191a6afb85f087,
+    type: 3}
   nextTile: {x: 0, y: 0, z: 0}
   coinCount: 0
+  passCount: 0
   modifiedTorquee: {x: 0, y: 0, z: 0}
   windModifier: {x: 0, y: 0, z: 0}
   chosenWindPower: 0
   timeRemaining: 15
+  initNoObstacle: 4
 --- !u!4 &2134184678
 Transform:
   m_ObjectHideFlags: 0
@@ -610,5 +620,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

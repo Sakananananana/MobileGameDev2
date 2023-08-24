@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleSpawn : MonoBehaviour
+public class PowerBehaviour : MonoBehaviour
 {
+    float timeRemain = 5.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,8 @@ public class ObstacleSpawn : MonoBehaviour
     void Update()
     {
         
+            timeRemain -= Time.deltaTime;
+            Debug.Log(timeRemain);
+        
     }
-
 }

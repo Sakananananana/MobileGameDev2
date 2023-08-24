@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class CoinBehaviour : MonoBehaviour
 {
-    // 3 coin spawn spots
-    // choose one
-    // behind spawn 3 more
-    // current place spawn one transform.position += 2 spawn
-    // collide destroy 
-    // coin + 1
-
     private GameController gameController;
 
     public void Update()
@@ -26,5 +19,4 @@ public class CoinBehaviour : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
 }
