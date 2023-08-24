@@ -5,72 +5,19 @@ using UnityEngine;
 
 public class PowerUpBehaviour : MonoBehaviour
 {
-    //GameController gameController;
-    int chosenPower = 0;
-    bool buffActivated = false;
-    bool breakBuff = false;
-    float timeRemaining = 5;
-
+    BasicCharacterMove CharaMove;
+    
     // Update is called once per frame
     void Update()
     {
-        //gameController = FindObjectOfType<GameController>();
-
-        //if (breakBuff)
-        //{ 
-        //    buffActivated = true;
-        //}
-
-        //if (buffActivated == true)
-        //{
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-            //Debug.Log(timeRemaining);
-            //Debug.Log(buffActivated);
-        }
-        //}
-        //else if (timeRemaining < 0)
-        //{
-        //    buffActivated = false;
-        //    timeRemaining = 5.0f;
-        //}
+        CharaMove = FindObjectOfType<BasicCharacterMove>();
     }
 
-    private void FixedUpdate()
+    private void OnTriggerEnter(Collider other)
     {
-       
-            if (timeRemaining > 0)
-            {
-               // timeRemaining -= Time.deltaTime;
-                Debug.Log(timeRemaining);
-                //Debug.Log(buffActivated);
-            }
-        
+        if (other.CompareTag("Player"))
+        {
+            CharaMove.playerBuff();
+        }
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        chosenPower = Random.Range(2, 3);
-    //        buffActivated = true;
-    //        //switch (chosenPower) 
-    //        //{
-    //        //    case 1:
-    //        //    {
-    //        //        Debug.Log("NUMBER 1 BUFF IS CHOSEN");  
-    //        //    }
-    //        //    break;
-
-    //        //    case 2:
-    //        //    {
-    //        //        buffActivated = true; 
-    //        //        Debug.Log(buffActivated);
-    //        //        Debug.Log("NUMBER 2 BUFF IS CHOSEN");
-    //        //    }
-    //        //    break;
-    //        //}
-    //    }
-    //}
 }

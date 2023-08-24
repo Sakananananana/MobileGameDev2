@@ -5,19 +5,28 @@ using UnityEngine;
 public class ObstacleBehaviour : MonoBehaviour
 {
     private GameController gameController;
-    private PowerUpBehaviour powerUP;
+    private BasicCharacterMove CharaMove;
 
     // Update is called once per frame
     void Update()
     {
-        powerUP = GetComponent<PowerUpBehaviour>();
+        CharaMove = FindObjectOfType<BasicCharacterMove>();
+        if (CharaMove.breakBuff)
+        {
+            Debug.Log("Enabled");
+        }
     }
 
     void OnCollisionEnter (Collision collision)
     {
-        if (gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && CharaMove.breakBuff)
         {
+            Debug.Log("Break");
             Destroy(this.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Player") && CharaMove.breakBuff == false)
+        {
+            Debug.Log("collided");
         }
     }
 

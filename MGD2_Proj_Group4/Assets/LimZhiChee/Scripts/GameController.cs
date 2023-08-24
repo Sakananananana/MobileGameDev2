@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     public Vector3 modifiedTorquee;
     public Vector3 windModifier = new Vector3(0f, 0f, 0f);
     public float chosenWindPower;
-    float[] WindPower = {-2.5f, -1.5f, -1f, 1f, 1.5f, 2.5f};
+    float[] WindPower = {-1.75f, -1.5f, -1f, 1f, 1.5f, 1.75f};
 
     //next time the wind blow
     float timeRangeMin = 10.0f;
@@ -68,7 +68,6 @@ public class GameController : MonoBehaviour
         {
             //when timeRemain is more than 0 -= Time.deltaTime
             timeRemaining -= Time.deltaTime;
-            //Debug.Log(timeRemaining);
 
             //modified = true, means already modified dun wan change
             modified = true;
