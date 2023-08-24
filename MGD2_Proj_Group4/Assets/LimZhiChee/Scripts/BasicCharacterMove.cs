@@ -15,7 +15,7 @@ public class BasicCharacterMove : MonoBehaviour
     Vector3 moveForward;
     Vector3 tilting;
     Vector3 moveDirection;
-    float tiltSpeed = 3.0f;
+    float tiltSpeed = 5.0f; //wait, this is for char movement
     float timeRemaining = 15.0f;
     float maxTime = 5f;
     float minTime = 2f;
@@ -37,7 +37,6 @@ public class BasicCharacterMove : MonoBehaviour
         //Start with random length of wind blow time
         timeRemaining = Random.Range(minTime, maxTime);
 
-        //modifiedTorque = controller.modifiedTorque;
     }
 
     // Update is called once per frame
@@ -45,10 +44,11 @@ public class BasicCharacterMove : MonoBehaviour
     {
         GameController controller = gameControl.GetComponent<GameController>();
         
-        //float horizontalSpeed = Input.GetAxis("Horizontal") * tiltSpeed;
-        //Vector3 moveDirection = new Vector3(0f, 0f, horizontalSpeed);
+        float horizontalSpeed = Input.GetAxis("Horizontal") * tiltSpeed;
+        Vector3 moveDirection = new Vector3(0f, 0f, horizontalSpeed);
+        rb.AddTorque(moveDirection, ForceMode.Acceleration);
 
-        if (transform.rotation.z > 0.3 || transform.rotation.z < -0.3)
+        if (transform.rotation.z > 0.4 || transform.rotation.z < -0.4)
         {
             unfreezePosition();
         }
@@ -67,13 +67,12 @@ public class BasicCharacterMove : MonoBehaviour
         if (transform.rotation.z > 0)
         {
             tilting = new Vector3(0f, 0f, 0.5f) + modifiedTorque;
-            Debug.Log(modifiedTorque);
             rb.AddTorque(tilting, ForceMode.Force);
         }
         else
         {
             tilting = new Vector3(0f, 0f, -0.5f) + modifiedTorque;
-            rb.AddTorque(tilting, ForceMode.Force);
+            rb.AddTorque(tilting, ForceMode.Force); 
         }
     }
 

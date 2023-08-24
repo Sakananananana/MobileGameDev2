@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - PowerUp2
   - PowerUp1
+  - ObstacleSpawn
   layers:
   - Default
   - TransparentFX

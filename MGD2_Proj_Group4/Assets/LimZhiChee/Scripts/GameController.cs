@@ -9,8 +9,12 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public Transform ropee;
     public Transform coins;
+    public Transform powerUps;
+    public Transform obstacle;
     public Vector3 nextTile;
     public int coinCount;
+    public int passCount;
+    float spawnAngle = 45;
     Rigidbody rb;
 
     //wind strength related
@@ -29,16 +33,28 @@ public class GameController : MonoBehaviour
     float timeCastMax = 5f;
     float castTimeRemaining;
 
+    //obstacle spawn
+    public int initNoObstacle = 4;
+    int canSpawn = 0;
+
+    //Coin and PowerUp swap
+    int coinSpawnCount;
+    int randomPowerSpawnTiming;
+    int minRandomPowerSpawnTiming = 10;
+    int maxRandomPowerSpawnTiming = 20;
+
     bool modified = true;
     bool inCast = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        randomPowerSpawnTiming = Random.Range(minRandomPowerSpawnTiming, maxRandomPowerSpawnTiming);
+
         //Spawn 5 unit of rope at start
-        for (var i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
-            SpawnRope();
+            SpawnRope(i >= initNoObstacle);
         }
 
         //Random wind spawn at start
@@ -52,6 +68,7 @@ public class GameController : MonoBehaviour
         {
             //when timeRemain is more than 0 -= Time.deltaTime
             timeRemaining -= Time.deltaTime;
+            //Debug.Log(timeRemaining);
 
             //modified = true, means already modified dun wan change
             modified = true;
@@ -61,7 +78,6 @@ public class GameController : MonoBehaviour
             //time finish counting modified = false means need new wind power
             modified = false;  
         }
-
         if (modified == false && timeRemaining < 0)
         {
             modifiedTorquee = windMechanic();
@@ -73,8 +89,6 @@ public class GameController : MonoBehaviour
         if (castTimeRemaining > 0 && modifiedTorquee.z != 0)
         {
             castTimeRemaining -= Time.deltaTime;
-            Debug.Log(modifiedTorquee);
-            Debug.Log(castTimeRemaining);
         }
         else if (inCast == true)
         {
@@ -84,13 +98,18 @@ public class GameController : MonoBehaviour
 
     }
 
-    public void SpawnRope()
+    public void SpawnRope(bool canSpawnObstacle = true)
     {
         Transform newTile = Instantiate(ropee, nextTile, Quaternion.identity);
         Transform next = newTile.Find("SpawnPoint");
         nextTile = next.position;
 
         SpawnCoin(newTile);
+
+        if (canSpawnObstacle)
+        {
+            SpawnObstacle(newTile);
+        }
     }
 
     public void SpawnCoin(Transform newTile)
@@ -104,18 +123,64 @@ public class GameController : MonoBehaviour
                 coinSpawnPoint.Add(child.gameObject);
             }
         }
-
         if (coinSpawnPoint.Count > 0)
         {
-            //randomly choose a spawn point based on right/center/left
-            GameObject spawnPoint = coinSpawnPoint[Random.Range(0, coinSpawnPoint.Count)];
+            if (coinSpawnCount == randomPowerSpawnTiming)
+            {
+                //randomly choose a spawn point based on right/center/left
+                GameObject spawnPoint = coinSpawnPoint[Random.Range(0, coinSpawnPoint.Count)];
 
-            //store the chosen spawn point
-            Vector3 spawnPos = spawnPoint.transform.position;
+                //store the chosen spawn point
+                Vector3 spawnPos = spawnPoint.transform.position;
 
-            Transform newCoins = Instantiate(coins, spawnPos, Quaternion.identity);
-            newCoins.SetParent(spawnPoint.transform);
+                Transform newCoins = Instantiate(powerUps, spawnPos, Quaternion.identity);
+                newCoins.SetParent(spawnPoint.transform);
+
+                coinSpawnCount = 0;
+                randomPowerSpawnTiming = Random.Range(minRandomPowerSpawnTiming, maxRandomPowerSpawnTiming);
+            }
+            else 
+            {
+                //randomly choose a spawn point based on right/center/left
+                GameObject spawnPoint = coinSpawnPoint[Random.Range(0, coinSpawnPoint.Count)];
+
+                //store the chosen spawn point
+                Vector3 spawnPos = spawnPoint.transform.position;
+
+                Transform newCoins = Instantiate(powerUps, spawnPos, Quaternion.identity);
+                newCoins.SetParent(spawnPoint.transform);
+
+                coinSpawnCount++;
+            }
         }
+        
+    }
+
+    public void SpawnObstacle(Transform newTile)
+    {
+        foreach (Transform child in newTile)
+        {
+            if (child.CompareTag("ObstacleSpawn") && passCount == canSpawn)
+            { 
+                Vector3 obstaclePos = child.transform.position;
+
+                float angle = Random.Range(-spawnAngle, spawnAngle);
+                Quaternion flagAngle = Quaternion.Euler(0, 0, angle);
+
+                Transform newObstacle = Instantiate(obstacle, obstaclePos, flagAngle);
+                newObstacle.SetParent(child.transform);
+
+                canSpawn = Random.Range(1, 5);
+                passCount = 0;
+            }
+        }
+    }
+
+    public Vector3 windMechanic()
+    {
+        chosenWindPower = WindPower[Random.Range(0, WindPower.Length)];
+        windModifier = new Vector3(0f, 0f, chosenWindPower);
+        return windModifier;
     }
 
     public void IncreaseCoinCount()
@@ -124,11 +189,9 @@ public class GameController : MonoBehaviour
         Debug.Log("Collected coins: " + coinCount);
     }
 
-    public Vector3 windMechanic()
+    public void IncreasePassCount()
     {
-        chosenWindPower = WindPower[Random.Range(0, WindPower.Length)];
-        windModifier = new Vector3(0f, 0f, chosenWindPower);
-        return windModifier;
+        passCount++;
     }
 
     public void timerReset()
