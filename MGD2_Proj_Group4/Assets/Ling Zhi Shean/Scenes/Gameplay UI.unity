@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1815468, g: 0.22718757, b: 0.30740595, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4240,6 +4240,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 03
       objectReference: {fileID: 0}
+    - target: {fileID: 2065694672876210858, guid: 325895955fee113438ff7ec098c3c45b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2065694672876210859, guid: 325895955fee113438ff7ec098c3c45b,
         type: 3}
       propertyPath: m_RootOrder
@@ -4637,7 +4642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Character_1: {fileID: 113124887}
   Character_2: {fileID: 1923371564}
-  Character_3: {fileID: 0}
+  Character_3: {fileID: 1700330366}
   Outfit1_isEquiped: 0
   Outfit2_isEquiped: 0
   Outfit3_isEquiped: 0
@@ -7293,8 +7298,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ropee: {fileID: 288512987045030497, guid: b9a9af2ec75a12840ab031a5c0ceb8b8, type: 3}
   coins: {fileID: 3703800494440574446, guid: 9d457874a18e5da4e84c89de2a6e659a, type: 3}
-  powerUps: {fileID: 0}
-  obstacle: {fileID: 0}
+  powerUps: {fileID: 866277666685360162, guid: 1330ce8f37694c0449340e5024823063, type: 3}
+  obstacle: {fileID: 7830092367644957375, guid: 0314733a03756e04c954fe226f0547e5,
+    type: 3}
   nextTile: {x: 0, y: 0, z: 0}
   coinCount: 0
   passCount: 0
@@ -11187,14 +11193,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453273302}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!1 &1464322339
 GameObject:
   m_ObjectHideFlags: 0
@@ -12233,7 +12239,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671603728}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6d71d20e2558af4eb7cde886e75bd40, type: 3}
   m_Name: 
@@ -12245,7 +12251,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671603728}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fab65f77a0f557a42a95482f19389121, type: 3}
   m_Name: 
@@ -12677,6 +12683,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690384226}
   m_CullTransparentMesh: 1
+--- !u!1 &1700330366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2065694672876210858, guid: 325895955fee113438ff7ec098c3c45b,
+    type: 3}
+  m_PrefabInstance: {fileID: 504775392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1711624399
 GameObject:
   m_ObjectHideFlags: 0
