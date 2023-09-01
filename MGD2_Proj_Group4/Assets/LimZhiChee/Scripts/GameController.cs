@@ -79,7 +79,7 @@ public class GameController : MonoBehaviour
         }
         if (modified == false && timeRemaining < 0)
         {
-            modifiedTorquee = windMechanic();
+            //modifiedTorquee = windMechanic();
             castTimeRemaining = Random.Range(timeCastMin, timeCastMax);
             inCast = true;
             timerReset();
@@ -175,12 +175,12 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public Vector3 windMechanic()
-    {
-        chosenWindPower = WindPower[Random.Range(0, WindPower.Length)];
-        windModifier = new Vector3(0f, 0f, chosenWindPower);
-        return windModifier;
-    }
+    //public Vector3 windMechanic()
+    //{
+    //    chosenWindPower = WindPower[Random.Range(0, WindPower.Length)];
+    //    windModifier = new Vector3(0f, 0f, chosenWindPower);
+    //    return windModifier;
+    //}
 
     public void IncreaseCoinCount()
     {

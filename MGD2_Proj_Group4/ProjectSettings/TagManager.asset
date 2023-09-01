@@ -9,6 +9,7 @@ TagManager:
   - PowerUp2
   - PowerUp1
   - ObstacleSpawn
+  - Obstacle
   layers:
   - Default
   - TransparentFX

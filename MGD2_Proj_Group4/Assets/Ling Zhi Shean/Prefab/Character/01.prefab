@@ -63,7 +63,7 @@ CapsuleCollider:
   m_Radius: 1
   m_Height: 7.3
   m_Direction: 1
-  m_Center: {x: 0, y: 3.65, z: 0.1}
+  m_Center: {x: 0, y: 3.65, z: 0}
 --- !u!95 &-7416705452221471092
 Animator:
   serializedVersion: 4

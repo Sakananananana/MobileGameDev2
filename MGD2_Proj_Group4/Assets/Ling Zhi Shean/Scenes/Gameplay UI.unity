@@ -284,7 +284,7 @@ PrefabInstance:
     - target: {fileID: 2691914921057269453, guid: 11fec63b79310034e943f66b3483a05a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2691914921057269453, guid: 11fec63b79310034e943f66b3483a05a,
         type: 3}
@@ -326,6 +326,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5242416290003822674, guid: 11fec63b79310034e943f66b3483a05a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11fec63b79310034e943f66b3483a05a, type: 3}
 --- !u!4 &70285766 stripped
@@ -358,6 +363,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1827226128182048838, guid: e7481b6db2d154e4788751a88fff7113,
         type: 3}
+    - target: {fileID: 2395595907888572363, guid: d3a8aa22866df3042ad745efc31f0c40,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8201588095581286815, guid: d3a8aa22866df3042ad745efc31f0c40,
         type: 3}
       propertyPath: m_Name
@@ -376,7 +386,7 @@ PrefabInstance:
     - target: {fileID: 8834431102304234277, guid: d3a8aa22866df3042ad745efc31f0c40,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8834431102304234277, guid: d3a8aa22866df3042ad745efc31f0c40,
         type: 3}
@@ -4235,6 +4245,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1671603729}
     m_Modifications:
+    - target: {fileID: -5739972344461228722, guid: 325895955fee113438ff7ec098c3c45b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2065694672876210858, guid: 325895955fee113438ff7ec098c3c45b,
         type: 3}
       propertyPath: m_Name
@@ -4258,7 +4273,7 @@ PrefabInstance:
     - target: {fileID: 2065694672876210859, guid: 325895955fee113438ff7ec098c3c45b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2065694672876210859, guid: 325895955fee113438ff7ec098c3c45b,
         type: 3}
@@ -4646,7 +4661,7 @@ MonoBehaviour:
   Outfit1_isEquiped: 0
   Outfit2_isEquiped: 0
   Outfit3_isEquiped: 0
-  Player: {fileID: 1923371564}
+  Player: {fileID: 1671603728}
   Player_Original_Position: 0
   Coins_Collected: {fileID: 208391870}
   Traveled_Distance: 0
@@ -4661,11 +4676,6 @@ MonoBehaviour:
   GameOver_Panel: {fileID: 873916866}
   Longest_Traveled_Distance: 0
   GameOver_Longest_Distance: {fileID: 823738172}
-  SFX_Audio: {fileID: 684165578}
-  SFX_AudioClip:
-  - {fileID: 8300000, guid: ac480fd4c2fb070428a5022e6e34d0f9, type: 3}
-  - {fileID: 8300000, guid: 2065f6fc9f979c0448c6dc4a8e15f4bf, type: 3}
-  - {fileID: 8300000, guid: d3b5db21be2148546b93c58962d57ff7, type: 3}
 --- !u!1 &585181132
 GameObject:
   m_ObjectHideFlags: 0
@@ -5512,7 +5522,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10566,7 +10576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352419714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12189,8 +12199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1671603729}
   - component: {fileID: 1671603730}
-  - component: {fileID: 1671603731}
-  - component: {fileID: 1671603732}
+  - component: {fileID: 1671603733}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -12232,19 +12241,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 48
   m_CollisionDetection: 0
---- !u!114 &1671603731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671603728}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d71d20e2558af4eb7cde886e75bd40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1671603732
+--- !u!114 &1671603733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12253,12 +12250,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 1671603728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab65f77a0f557a42a95482f19389121, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dd5fe07edc126546ae94860c2f932c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameControl: {fileID: 898651516}
-  breakBuff: 0
-  horizMovement: 0
+  isDeath: 0
+  forwardSpeed: 5
+  coinNum: 0
+  tiltRotation: 0
+  tiltDirection: 0
+  tiltSpeed: 0.25
+  unbalanceRotation: 0
+  unbalanceDirection: 0
+  unbalanceSpeed: 0.02
+  isWindBlow: 0
+  windDirectionRand: 0
+  windRotation: 0
+  windDirection: 0
+  windSpeed: 0.05
+  WindDuration: 5
+  windOriTimer: 10
+  windCountdownTimer: 0
+  PU1_Upgrade_State: 0
+  PU1Duration: 0
+  isPU1: 0
+  PU2_Upgrade_State: 0
+  PU2Duration: 0
+  isPU2: 0
+  Outfit1_isEquiped: 0
+  isOutfit1: 0
+  Outfit2_isEquiped: 0
+  isOutfit2: 0
+  Outfit3_isEquiped: 0
+  isOutfit3: 0
+  BGMAudio: {fileID: 1689748417}
+  BGMAudioClip:
+  - {fileID: 8300000, guid: abb75a1eff6ca2c46ae26e48f1223b9f, type: 3}
+  - {fileID: 8300000, guid: faf2155b18910b24e9081b6ec8a30150, type: 3}
+  SFXAudio: {fileID: 684165578}
+  SFXAudioClip:
+  - {fileID: 8300000, guid: ac480fd4c2fb070428a5022e6e34d0f9, type: 3}
+  - {fileID: 8300000, guid: 2065f6fc9f979c0448c6dc4a8e15f4bf, type: 3}
+  - {fileID: 8300000, guid: d3b5db21be2148546b93c58962d57ff7, type: 3}
+  - {fileID: 8300000, guid: 25bc58f1c26fb5a46a3e5e6accf106c4, type: 3}
+  - {fileID: 8300000, guid: 1f241eb151cb27e4daa77ed1cc4e88c5, type: 3}
 --- !u!1 &1679465186
 GameObject:
   m_ObjectHideFlags: 0
@@ -12424,7 +12458,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -6652410742529560197, guid: fd9033a025afb9347a1e796c7149987d,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: abb75a1eff6ca2c46ae26e48f1223b9f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
