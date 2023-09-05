@@ -79,7 +79,6 @@ public class BasicCharacterMove : MonoBehaviour
         else if (stableBuff == true)
         {
             movingForward();
-
         }
         else
         {
@@ -88,7 +87,7 @@ public class BasicCharacterMove : MonoBehaviour
         }   
     }
 
-    private void FixedUpdate()
+     private void FixedUpdate()
     {
         if (powerTimeRemaining > 0 && buffActivated)
         {
@@ -138,27 +137,16 @@ public class BasicCharacterMove : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
     }
 
-    public void playerBuff()
+    public void StableBuff()
     {
-        chosenPower = Random.Range(1, 2);
-        switch (chosenPower)
-        {
-            case 1:
-                {
-                    buffActivated = true;
-                    stableBuff = true;
-                    Debug.Log("Stable");
-                }
-                break;
-
-            case 2:
-                {
-                    buffActivated = true;
-                    breakBuff = true;
-                }
-                break;
-        }
-
+        buffActivated = true;
+        stableBuff = true;
+        Debug.Log("Stable");
     }
 
+    public void BreakBuff()
+    {
+        buffActivated = true;
+        breakBuff = true;
+    }
 }

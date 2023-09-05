@@ -9,11 +9,14 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public Transform ropee;
     public Transform coins;
-    public Transform powerUps;
+    Transform selectedPower;
+    public Transform breakPower;
+    public Transform stablePower;
     public Transform obstacle;
     public Vector3 nextTile;
     public int coinCount;
     public int passCount;
+    int powerSwitch;
     float spawnAngle = 45;
     Rigidbody rb;
 
@@ -40,8 +43,8 @@ public class GameController : MonoBehaviour
     //Coin and PowerUp swap
     int coinSpawnCount;
     int randomPowerSpawnTiming;
-    int minRandomPowerSpawnTiming = 10;
-    int maxRandomPowerSpawnTiming = 20;
+    int minRandomPowerSpawnTiming = 2;
+    int maxRandomPowerSpawnTiming = 5;
 
     bool modified = true;
     bool inCast = false;
@@ -97,6 +100,7 @@ public class GameController : MonoBehaviour
 
     }
 
+    #region Endless Rope Spawn Mechanics
     public void SpawnRope(bool canSpawnObstacle = true)
     {
         Transform newTile = Instantiate(ropee, nextTile, Quaternion.identity);
@@ -110,7 +114,9 @@ public class GameController : MonoBehaviour
             SpawnObstacle(newTile);
         }
     }
+    #endregion
 
+    #region Coin & PowerUp Spawn Mechanics
     public void SpawnCoin(Transform newTile)
     {
         List<GameObject> coinSpawnPoint = new List<GameObject>();
@@ -132,7 +138,24 @@ public class GameController : MonoBehaviour
                 //store the chosen spawn point
                 Vector3 spawnPos = spawnPoint.transform.position;
 
-                Transform newCoins = Instantiate(powerUps, spawnPos, Quaternion.identity);
+                powerSwitch = Random.Range(1, 3);
+
+                switch (powerSwitch)
+                {
+                    case 1:
+                        {
+                            selectedPower = stablePower; 
+                        }
+                        break;
+
+                    case 2:
+                        {
+                            selectedPower = breakPower;
+                        }
+                        break;
+                }
+
+                Transform newCoins = Instantiate(selectedPower, spawnPos, Quaternion.identity);
                 newCoins.SetParent(spawnPoint.transform);
 
                 coinSpawnCount = 0;
@@ -146,7 +169,7 @@ public class GameController : MonoBehaviour
                 //store the chosen spawn point
                 Vector3 spawnPos = spawnPoint.transform.position;
 
-                Transform newCoins = Instantiate(powerUps, spawnPos, Quaternion.identity);
+                Transform newCoins = Instantiate(coins, spawnPos, Quaternion.identity);
                 newCoins.SetParent(spawnPoint.transform);
 
                 coinSpawnCount++;
@@ -154,7 +177,9 @@ public class GameController : MonoBehaviour
         }
         
     }
+    #endregion
 
+    #region Obstacle Spawn Mechanics
     public void SpawnObstacle(Transform newTile)
     {
         foreach (Transform child in newTile)
@@ -174,6 +199,7 @@ public class GameController : MonoBehaviour
             }
         }
     }
+    #endregion
 
     //public Vector3 windMechanic()
     //{

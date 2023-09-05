@@ -6,6 +6,7 @@ using UnityEngine;
 public class PowerUpBehaviour : MonoBehaviour
 {
     BasicCharacterMove CharaMove;
+    string collidedObject;
     
     // Update is called once per frame
     void Update()
@@ -17,7 +18,19 @@ public class PowerUpBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            CharaMove.playerBuff();
+           collidedObject = this.gameObject.name;
+ 
+            if (collidedObject == "Balancing(Clone)")
+            {
+                Debug.Log("collided");
+                CharaMove.StableBuff();
+            }
+
+            if (collidedObject == "Invulnerable(Clone)")
+            {
+                Debug.Log("collided");
+                CharaMove.BreakBuff();
+            }
         }
     }
 }

@@ -594,8 +594,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ropee: {fileID: 7386646447511762554, guid: 54dabf7f926315946a34f3d585d7e774, type: 3}
-  coins: {fileID: 9212481835428297471, guid: cd75bd86ab932e04e814d03ebb04d0a8, type: 3}
-  powerUps: {fileID: 6908764303284422100, guid: 7e7ef09dd7ce0e5408142ab2ce093928,
+  coins: {fileID: 3703800494440574446, guid: 9d457874a18e5da4e84c89de2a6e659a, type: 3}
+  breakPower: {fileID: 6708147358159444079, guid: 5825d3ac53f935f4e9d0a2a8f0e003f1,
+    type: 3}
+  stablePower: {fileID: 866277666685360162, guid: 7dc1a80e577a9a54b945db38f8620960,
     type: 3}
   obstacle: {fileID: 3018343806446996952, guid: c88c31dd28a2a98409191a6afb85f087,
     type: 3}

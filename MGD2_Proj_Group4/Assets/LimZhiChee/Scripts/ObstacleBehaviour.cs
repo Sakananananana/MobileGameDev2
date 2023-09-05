@@ -13,7 +13,7 @@ public class ObstacleBehaviour : MonoBehaviour
         CharaMove = FindObjectOfType<BasicCharacterMove>();
         if (CharaMove.breakBuff)
         {
-            Debug.Log("Enabled");
+            //Debug.Log("Enabled");
         }
     }
 
