@@ -43,8 +43,8 @@ public class GameController : MonoBehaviour
     //Coin and PowerUp swap
     int coinSpawnCount;
     int randomPowerSpawnTiming;
-    int minRandomPowerSpawnTiming = 2;
-    int maxRandomPowerSpawnTiming = 5;
+    int minRandomPowerSpawnTiming = 5;
+    int maxRandomPowerSpawnTiming = 10;
 
     bool modified = true;
     bool inCast = false;
@@ -67,36 +67,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (timeRemaining > 0)
-        {
-            //when timeRemain is more than 0 -= Time.deltaTime
-            timeRemaining -= Time.deltaTime;
-
-            //modified = true, means already modified dun wan change
-            modified = true;
-        }
-        else
-        {
-            //time finish counting modified = false means need new wind power
-            modified = false;  
-        }
-        if (modified == false && timeRemaining < 0)
-        {
-            //modifiedTorquee = windMechanic();
-            castTimeRemaining = Random.Range(timeCastMin, timeCastMax);
-            inCast = true;
-            timerReset();
-            modified = true;
-        }
-        if (castTimeRemaining > 0 && modifiedTorquee.z != 0)
-        {
-            castTimeRemaining -= Time.deltaTime;
-        }
-        else if (inCast == true)
-        {
-            modifiedTorquee = new Vector3(0, 0, 0);
-            inCast = false;
-        }
+        
 
     }
 
@@ -201,12 +172,7 @@ public class GameController : MonoBehaviour
     }
     #endregion
 
-    //public Vector3 windMechanic()
-    //{
-    //    chosenWindPower = WindPower[Random.Range(0, WindPower.Length)];
-    //    windModifier = new Vector3(0f, 0f, chosenWindPower);
-    //    return windModifier;
-    //}
+    
 
     public void IncreaseCoinCount()
     {

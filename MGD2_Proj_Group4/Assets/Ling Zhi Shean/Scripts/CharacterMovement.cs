@@ -64,6 +64,8 @@ public class CharacterMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
+        isDeath = false;
+
         isWindBlow = false;
         windCountdownTimer = windOriTimer;
 
@@ -116,6 +118,7 @@ public class CharacterMovement : MonoBehaviour
         {
             rb.velocity = new Vector3(0, 0, 0);
             transform.Rotate(0, 0, 0, Space.Self);
+            SFXAudio.PlayOneShot(SFXAudioClip[4]);
             Time.timeScale = 0;
         }
         else
@@ -210,8 +213,11 @@ public class CharacterMovement : MonoBehaviour
     {
         if (transform.rotation.z >= 0.35f || transform.rotation.z <= -0.35f)
         {
-            SFXAudio.PlayOneShot(SFXAudioClip[4]);
             isDeath = true;
+        }
+        else
+        {
+            isDeath = false;
         }
     }
 
@@ -309,14 +315,12 @@ public class CharacterMovement : MonoBehaviour
         if(other.CompareTag("PowerUp1"))
         {
             isPU1 = true;
-            SFXAudio.PlayOneShot(SFXAudioClip[1]);
             StartCoroutine(PU1Timer());
         }
 
         if(other.CompareTag("PowerUp2"))
         {
             isPU2 = true;
-            SFXAudio.PlayOneShot(SFXAudioClip[1]);
             StartCoroutine(PU2Timer());
         }
 
@@ -334,17 +338,20 @@ public class CharacterMovement : MonoBehaviour
             {
                 SFXAudio.PlayOneShot(SFXAudioClip[3]);
                 isDeath = true;
+                Time.timeScale = 0;
             }
         }
     }
     IEnumerator PU1Timer()
     {
+        SFXAudio.PlayOneShot(SFXAudioClip[1]);
         yield return new WaitForSeconds(PU1Duration);
         SFXAudio.PlayOneShot(SFXAudioClip[2]);
         isPU1 = false;
     }
     IEnumerator PU2Timer()
     {
+        SFXAudio.PlayOneShot(SFXAudioClip[1]);
         yield return new WaitForSeconds(PU2Duration);
         SFXAudio.PlayOneShot(SFXAudioClip[2]);
         isPU2 = false;

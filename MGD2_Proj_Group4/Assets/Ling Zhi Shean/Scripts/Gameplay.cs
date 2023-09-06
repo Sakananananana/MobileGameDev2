@@ -37,6 +37,8 @@ public class Gameplay : MonoBehaviour
     public float Longest_Traveled_Distance;
     public TMP_Text GameOver_Longest_Distance;
 
+    public GameObject Warning_Panel; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,11 +59,18 @@ public class Gameplay : MonoBehaviour
         PU2_Timer = Character_Movement.PU2Duration;
 
         GameOver_Panel.SetActive(false);
+
+        Warning_Panel.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Warning_Panel.activeSelf)
+        {
+            Time.timeScale = 0f;
+        }
+
         if (Outfit1_isEquiped == 1)
         {
             Character_1.SetActive(true);
@@ -134,5 +143,11 @@ public class Gameplay : MonoBehaviour
             GameOver_Longest_Distance.text = Longest_Traveled_Distance.ToString("0.0");
             GameOver_Panel.SetActive(true);
         }
+    }
+
+    public void WaningPanel()
+    {
+        Warning_Panel.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
