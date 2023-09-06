@@ -13927,15 +13927,15 @@ MonoBehaviour:
   coinNum: 0
   tiltRotation: 0
   tiltDirection: 0
-  tiltSpeed: 0.25
+  tiltSpeed: 1.2
   unbalanceRotation: 0
   unbalanceDirection: 0
-  unbalanceSpeed: 0.02
+  unbalanceSpeed: 0.2
   isWindBlow: 0
   windDirectionRand: 0
   windRotation: 0
   windDirection: 0
-  windSpeed: 0.05
+  windSpeed: 0.5
   WindDuration: 5
   windOriTimer: 10
   windCountdownTimer: 0

@@ -2148,7 +2148,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Character can walk forward faster.
+  m_text: Character can prevent death from hitting obstacle once per game.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e420348097429249ab798c54ef90879, type: 2}
   m_sharedMaterial: {fileID: 1755446296236252607, guid: 9e420348097429249ab798c54ef90879,
@@ -2176,8 +2176,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2188,7 +2188,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -14720,7 +14720,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1524, y: 0}
+  m_SizeDelta: {x: -1164, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &945999841
 MonoBehaviour:
@@ -15192,7 +15192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Character's balancing ability will be increase.
+  m_text: Character won't be unbalance while walking on tightrope.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e420348097429249ab798c54ef90879, type: 2}
   m_sharedMaterial: {fileID: 1755446296236252607, guid: 9e420348097429249ab798c54ef90879,
@@ -15220,8 +15220,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
-  m_fontSizeBase: 34
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15232,7 +15232,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -28596,7 +28596,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1524, y: 0}
+  m_SizeDelta: {x: -1164, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1968029574
 MonoBehaviour:
@@ -30772,7 +30772,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Character can prevent death after hitting obstacle in a period.
+  m_text: Character can prevent death from hitting obstacle once in a period.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e420348097429249ab798c54ef90879, type: 2}
   m_sharedMaterial: {fileID: 1755446296236252607, guid: 9e420348097429249ab798c54ef90879,
@@ -30800,8 +30800,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 31
+  m_fontSizeBase: 31
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

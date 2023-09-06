@@ -285,7 +285,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (isPU1)
         {
-            unbalanceSpeed = 0.01f;
+            unbalanceSpeed = 0.1f;
         }
     }
 
@@ -293,14 +293,16 @@ public class CharacterMovement : MonoBehaviour
     {
         if(isOutfit1)
         {
-            tiltSpeed = 0.05f;
-            unbalanceSpeed = 0.02f;
-            windSpeed = 0.05f;
+            tiltSpeed = 1.2f;
+            unbalanceSpeed = 0.2f;
+            windSpeed = 0.5f;
         }
 
         if (isOutfit2)
         {
+            tiltSpeed = 1.2f;
             unbalanceSpeed = 0;
+            windSpeed = 0.5f;
         }
     }
 
