@@ -293,14 +293,14 @@ public class CharacterMovement : MonoBehaviour
     {
         if(isOutfit1)
         {
-            tiltSpeed = 1.2f;
+            tiltSpeed = 1.5f;
             unbalanceSpeed = 0.2f;
             windSpeed = 0.5f;
         }
 
         if (isOutfit2)
         {
-            tiltSpeed = 1.2f;
+            tiltSpeed = 1.5f;
             unbalanceSpeed = 0;
             windSpeed = 0.5f;
         }

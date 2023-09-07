@@ -37,7 +37,9 @@ public class Gameplay : MonoBehaviour
     public float Longest_Traveled_Distance;
     public TMP_Text GameOver_Longest_Distance;
 
-    public GameObject Warning_Panel; 
+    public GameObject Warning_Panel;
+    public GameObject Tutorial_Panel;
+    public int First_Time;
 
     // Start is called before the first frame update
     void Start()
@@ -61,12 +63,24 @@ public class Gameplay : MonoBehaviour
         GameOver_Panel.SetActive(false);
 
         Warning_Panel.SetActive(true);
+
+        First_Time = PlayerPrefs.GetInt("First_Time", 1);
+
+        if (First_Time == 1)
+        {
+            Tutorial_Panel.SetActive(true);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Warning_Panel.activeSelf)
+        {
+            Time.timeScale = 0f;
+        }
+
+        if(Tutorial_Panel.activeSelf)
         {
             Time.timeScale = 0f;
         }
@@ -149,5 +163,12 @@ public class Gameplay : MonoBehaviour
     {
         Warning_Panel.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void TutorialPanel()
+    {
+        Tutorial_Panel.SetActive(false);
+        PlayerPrefs.SetInt("First_Time", 0);
+        PlayerPrefs.Save();
     }
 }
