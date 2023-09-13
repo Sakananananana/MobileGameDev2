@@ -23,6 +23,7 @@ public class CharacterMovement : MonoBehaviour
     public float unbalanceRotation;
     public float unbalanceDirection;
     public float unbalanceSpeed;
+    public float oriUnbalanceSpeed;
 
     [Header("Wind Blow")]
     public bool isWindBlow;
@@ -33,6 +34,8 @@ public class CharacterMovement : MonoBehaviour
     public float WindDuration;
     public float windOriTimer;
     public float windCountdownTimer;
+    public GameObject warningSign;
+    public bool isWarning;
 
     [Header("Power Up")]
     public int PU1_Upgrade_State;
@@ -69,6 +72,7 @@ public class CharacterMovement : MonoBehaviour
         isWindBlow = false;
         windCountdownTimer = windOriTimer;
 
+        BGMAudio.panStereo = 0;
         BGMAudio.clip = BGMAudioClip[0];
         BGMAudio.Play();
 
@@ -82,6 +86,8 @@ public class CharacterMovement : MonoBehaviour
         powerupDuration();
         outfitEquipped();
 
+        warningSign.SetActive(false); 
+        isWarning = false;
     }
 
     // Update is called once per frame
@@ -95,7 +101,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (Time.timeScale == 1)
         {
-            Tiliting();
+            Tilting();
             Unbalance();
             WindBlowTimer();
             transform.Rotate(0, 0, windRotation + tiltRotation + unbalanceRotation, Space.Self);
@@ -127,15 +133,18 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    private void Tiliting()
+    private void Tilting()
     {
-        tiltDirection = Input.GetAxis("Horizontal");
-        tiltDirection = Input.acceleration.x;
+        if(Input.acceleration.x == 0)
+        {
+            tiltDirection = Input.GetAxis("Horizontal");
+        }
+        else
+        {
+            tiltDirection = Input.acceleration.x;
+        }
 
-        tiltRotation = -tiltDirection * tiltSpeed;
-
-        //tiltRotation = new Vector3(0, 0, -tiltDirection * tiltSpeed)
-        //rb.AddTorque(tiltRotation, ForceMode.Force);
+        tiltRotation = -tiltDirection * tiltSpeed * Time.deltaTime;
     }
 
     private void Unbalance()
@@ -149,10 +158,7 @@ public class CharacterMovement : MonoBehaviour
             unbalanceDirection = 1;
         }
 
-        unbalanceRotation = unbalanceDirection * unbalanceSpeed;
-
-        //unbalanceRotation = new Vector3(0, 0, unbalanceDirection * unbalanceSpeed);
-        //rb.AddTorque(tiltRotation + unbalanceRotation, ForceMode.Force);
+        unbalanceRotation = unbalanceDirection * unbalanceSpeed * Time.deltaTime;
     }
 
     private void WindBlowEffect()
@@ -165,30 +171,44 @@ public class CharacterMovement : MonoBehaviour
         if (windDirectionRand < 0.5)
         {
             windDirection = -1;
+            BGMAudio.panStereo = -0.5f;
         }
         else
         {
             windDirection = 1;
+            BGMAudio.panStereo = 0.5f;
         }
 
-        windRotation = windDirection * windSpeed;
+        windRotation = windDirection * windSpeed * Time.deltaTime;
     }
     private void WindBlowTimer()
     {
-        if(windCountdownTimer < 0)
+        if(windCountdownTimer <= 0)
         {
             StartCoroutine(WindBlow());
         }
-        else if (windCountdownTimer < 0.1)
+        else if (windCountdownTimer <= 0.1)
         {
             BGMAudio.clip = BGMAudioClip[1];
             BGMAudio.Play();
 
             windCountdownTimer -= Time.deltaTime;
         }
+        else if(windCountdownTimer <= 3)
+        {
+            warningSign.SetActive(true);
+            windCountdownTimer -= Time.deltaTime;
+
+            if(!isWarning)
+            {
+                SFXAudio.PlayOneShot(SFXAudioClip[5]);
+                isWarning = true;
+            }
+        }
         else
         {
             windCountdownTimer -= Time.deltaTime;
+            isWarning = false;
         }
     }
     private IEnumerator WindBlow()
@@ -203,9 +223,12 @@ public class CharacterMovement : MonoBehaviour
 
         windRotation = 0;
 
+        BGMAudio.panStereo = 0;
         BGMAudio.clip = BGMAudioClip[0];
         BGMAudio.Play();
 
+        warningSign.SetActive(false);
+        
         windCountdownTimer = windOriTimer;
     }
 
@@ -285,24 +308,24 @@ public class CharacterMovement : MonoBehaviour
     {
         if (isPU1)
         {
-            unbalanceSpeed = 0.1f;
+            unbalanceSpeed = oriUnbalanceSpeed / 2 ;
+        }
+        else
+        {
+            unbalanceSpeed = oriUnbalanceSpeed;
         }
     }
 
     private void OutfitEffect()
     {
-        if(isOutfit1)
+        if(isOutfit1 || isOutfit3)
         {
-            tiltSpeed = 1.5f;
-            unbalanceSpeed = 0.2f;
-            windSpeed = 0.5f;
+            unbalanceSpeed = oriUnbalanceSpeed;
         }
 
         if (isOutfit2)
         {
-            tiltSpeed = 1.5f;
-            unbalanceSpeed = 0;
-            windSpeed = 0.5f;
+            unbalanceSpeed = oriUnbalanceSpeed / 3;
         }
     }
 
