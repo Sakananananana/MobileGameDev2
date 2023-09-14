@@ -61,7 +61,6 @@ public class CharacterMovement : MonoBehaviour
     public AudioClip[] SFXAudioClip;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -104,7 +103,7 @@ public class CharacterMovement : MonoBehaviour
             Tilting();
             Unbalance();
             WindBlowTimer();
-            transform.Rotate(0, 0, windRotation + tiltRotation + unbalanceRotation, Space.Self);
+            transform.Rotate(0, 0, tiltRotation + (windRotation + unbalanceRotation), Space.Self);
         }
     }
 

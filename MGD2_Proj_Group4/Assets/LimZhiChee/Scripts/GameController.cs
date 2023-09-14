@@ -18,23 +18,6 @@ public class GameController : MonoBehaviour
     public int passCount;
     int powerSwitch;
     float spawnAngle = 45;
-    Rigidbody rb;
-
-    //wind strength related
-    public Vector3 modifiedTorquee;
-    public Vector3 windModifier = new Vector3(0f, 0f, 0f);
-    public float chosenWindPower;
-    float[] WindPower = {-1.75f, -1.5f, -1f, 1f, 1.5f, 1.75f};
-
-    //next time the wind blow
-    float timeRangeMin = 10.0f;
-    float timeRangeMax = 15.0f;
-    public float timeRemaining = 10.0f;
-
-    //the time of the wind cast on player
-    float timeCastMin = 3f;
-    float timeCastMax = 5f;
-    float castTimeRemaining;
 
     //obstacle spawn
     public int initNoObstacle = 4;
@@ -46,9 +29,6 @@ public class GameController : MonoBehaviour
     int minRandomPowerSpawnTiming = 5;
     int maxRandomPowerSpawnTiming = 10;
 
-    bool modified = true;
-    bool inCast = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -59,16 +39,6 @@ public class GameController : MonoBehaviour
         {
             SpawnRope(i >= initNoObstacle);
         }
-
-        //Random wind spawn at start
-        castTimeRemaining = Random.Range(timeCastMin, timeCastMax);
-    }
-
-    // Update is called once per frame
-    public void Update()
-    {
-        
-
     }
 
     #region Endless Rope Spawn Mechanics
@@ -172,21 +142,8 @@ public class GameController : MonoBehaviour
     }
     #endregion
 
-    
-
-    public void IncreaseCoinCount()
-    {
-        coinCount++;
-        Debug.Log("Collected coins: " + coinCount);
-    }
-
     public void IncreasePassCount()
     {
         passCount++;
-    }
-
-    public void timerReset()
-    {
-        timeRemaining = Random.Range(timeRangeMin, timeRangeMax);
     }
 }

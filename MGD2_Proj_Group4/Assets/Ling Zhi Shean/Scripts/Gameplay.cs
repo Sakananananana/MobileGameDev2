@@ -20,6 +20,7 @@ public class Gameplay : MonoBehaviour
     public float Player_Original_Position;
 
     public TMP_Text Coins_Collected;
+    public int Total_Coins_Collected;
 
     public float Traveled_Distance;
     public TMP_Text Gameplay_Distance;
@@ -38,6 +39,8 @@ public class Gameplay : MonoBehaviour
     public TMP_Text GameOver_Longest_Distance;
 
     public GameObject Warning_Panel;
+    public int Warning_First_Time;
+
     public GameObject Tutorial_Panel;
     public int First_Time;
 
@@ -62,7 +65,15 @@ public class Gameplay : MonoBehaviour
 
         GameOver_Panel.SetActive(false);
 
-        Warning_Panel.SetActive(true);
+        Warning_First_Time = PlayerPrefs.GetInt("WarningFirst", 1);
+
+        if(Warning_First_Time == 1)
+        {
+            Warning_Panel.SetActive(true);
+            PlayerPrefs.SetInt("WarningFirst", 0);
+            PlayerPrefs.Save();
+        }
+        
 
         First_Time = PlayerPrefs.GetInt("First_Time", 1);
 
@@ -70,6 +81,8 @@ public class Gameplay : MonoBehaviour
         {
             Tutorial_Panel.SetActive(true);
         }
+
+        Total_Coins_Collected = PlayerPrefs.GetInt("Gameplay_Coins");
     }
 
     // Update is called once per frame
@@ -141,9 +154,6 @@ public class Gameplay : MonoBehaviour
 
         if (Character_Movement.isDeath)
         {
-            PlayerPrefs.SetInt("Gameplay_Coins", Character_Movement.coinNum);
-            PlayerPrefs.Save();
-
             Longest_Traveled_Distance = PlayerPrefs.GetFloat("Longest_Distance");
 
             if (Traveled_Distance > Longest_Traveled_Distance)
@@ -154,7 +164,7 @@ public class Gameplay : MonoBehaviour
             }
 
             GameOver_Distance.text = Traveled_Distance.ToString("0.0") + "m";
-            GameOver_Longest_Distance.text = Longest_Traveled_Distance.ToString("0.0");
+            GameOver_Longest_Distance.text = Longest_Traveled_Distance.ToString("0.0") + "m";
             GameOver_Panel.SetActive(true);
         }
     }
@@ -169,6 +179,19 @@ public class Gameplay : MonoBehaviour
     {
         Tutorial_Panel.SetActive(false);
         PlayerPrefs.SetInt("First_Time", 0);
+        PlayerPrefs.Save();
+    }
+
+    public void Restart()
+    {
+        Total_Coins_Collected += Character_Movement.coinNum;
+        PlayerPrefs.SetInt("Gameplay_Coins", Total_Coins_Collected);
+        PlayerPrefs.Save();
+    }
+
+    public void MainMenu()
+    {
+        PlayerPrefs.SetInt("Gameplay_Coins", Character_Movement.coinNum);
         PlayerPrefs.Save();
     }
 }

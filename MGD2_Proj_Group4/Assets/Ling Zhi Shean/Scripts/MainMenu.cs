@@ -22,15 +22,25 @@ public class MainMenu : MonoBehaviour
     {
         outfit = GetComponent<Outfits>();
 
-        Coins_Collected = PlayerPrefs.GetInt("Gameplay_Coins", 0);
+        Total_Coins = PlayerPrefs.GetInt("Total_Coins", 0);
+        Coins_Collected = PlayerPrefs.GetInt("Gameplay_Coins");
         Total_Coins += Coins_Collected;
-        PlayerPrefs.DeleteKey("Gameplay_Coins");
+        PlayerPrefs.SetInt("Total_Coins", Total_Coins);
+        PlayerPrefs.SetInt("Gameplay_Coins", 0);
+        PlayerPrefs.Save();
+
+        PlayerPrefs.SetInt("WarningFirst", 1);
+        PlayerPrefs.Save();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(outfit.Outfit1_isEquiped == 1)
+        Total_Coins_Text.text = "x" + Total_Coins.ToString();
+        PlayerPrefs.SetInt("Total_Coins", Total_Coins);
+        PlayerPrefs.Save();
+
+        if (outfit.Outfit1_isEquiped == 1)
         {
             Character_1.SetActive(true);
             Character_2.SetActive(false);
@@ -50,8 +60,6 @@ public class MainMenu : MonoBehaviour
             Character_1.SetActive(false);
             Character_2.SetActive(false);
         }
-
-        Total_Coins_Text.text = "x" + Total_Coins.ToString();
     }
 
     public void PlayGame()
